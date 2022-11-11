@@ -9,9 +9,3 @@ variable "path_to_public_key" {
   default     = ""
   description = "Path to your public SSH key usually ~/.ssh/<<your_key_name>>.pub"
 }
-
-variable "host_os" {
-  type        = string
-  default     = "windows"
-  description = "Your host OS"
-}

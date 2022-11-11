@@ -10,3 +10,9 @@ variable "security_group_id" {
   description = "AWS SEcurity Group ID"
 }
 
+variable "host_os" {
+  type        = string
+  default     = "windows"
+  description = "Your host OS"
+}
+

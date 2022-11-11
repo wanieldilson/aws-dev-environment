@@ -1,5 +1,5 @@
 module "networking" {
-  source = "./modules/networking"
+  source   = "./modules/networking"
   local_ip = var.local_ip
 
 }
