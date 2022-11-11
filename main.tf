@@ -12,13 +12,3 @@ module "compute" {
   developer_name    = "wanieldilson"
   instance_type     = "t2.micro"
 }
-
-module "dev-machine-2" {
-  source            = "./modules/compute"
-  security_group_id = module.networking.security_group_id
-  subnet_id         = module.networking.subnet_id
-  key_name          = "johnInstanceKey"
-  developer_name    = "john"
-  instance_type     = "t2.micro"
-
-}
