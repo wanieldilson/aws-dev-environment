@@ -16,6 +16,7 @@ resource "aws_instance" "this" {
   }
 
   tags = {
-    Name = "${developer_name}-dev-instance"
+
+    Name = "${var.developer_name}-dev-instance"
   }
 }
