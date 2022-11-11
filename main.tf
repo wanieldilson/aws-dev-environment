@@ -74,7 +74,7 @@ resource "aws_security_group" "allow_ingress" {
 
 resource "aws_key_pair" "dev-env-key" {
   key_name   = "devInstanceKey"
-  public_key = file("devInstanceKey.pub")
+  public_key = file("/mnt/workspace/devInstanceKey.pub")
 }
 
 resource "aws_instance" "this" {
