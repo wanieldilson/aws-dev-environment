@@ -1,11 +1,11 @@
 resource "aws_key_pair" "dev-env-key" {
-  key_name   = "devInstanceKey"
+  key_name   = var.key_name
   public_key = file("/mnt/workspace/devInstanceKey.pub")
 }
 
 resource "aws_instance" "this" {
   ami                    = data.aws_ami.ubuntu.id
-  instance_type          = "t2.micro"
+  instance_type          = var.instance_type
   key_name               = aws_key_pair.dev-env-key.id
   vpc_security_group_ids = [var.security_group_id]
   subnet_id              = var.subnet_id
@@ -16,6 +16,6 @@ resource "aws_instance" "this" {
   }
 
   tags = {
-    Name = "dev-instance"
+    Name = "${developer_name}-dev-instance"
   }
 }
