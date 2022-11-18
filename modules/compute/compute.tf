@@ -10,6 +10,7 @@ resource "aws_instance" "this" {
   vpc_security_group_ids = [var.security_group_id]
   subnet_id              = var.subnet_id
   user_data              = file("${path.module}/user_data.tpl")
+  iam_instance_profile   = var.iam_instance_profile
 
   root_block_device {
     volume_size = 10

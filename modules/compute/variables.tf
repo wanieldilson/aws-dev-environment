@@ -22,7 +22,6 @@ variable "developer_name" {
 
 variable "key_name" {
   type = string
-
 }
 
 variable "instance_type" {
@@ -30,3 +29,6 @@ variable "instance_type" {
   default = "t2.micro"
 }
 
+variable "iam_instance_profile" {
+  type = string
+}
