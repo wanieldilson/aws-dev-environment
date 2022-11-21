@@ -53,4 +53,4 @@ Follow [this guide](https://youtu.be/FRQ9fE4fd5g) to create and secure a new AWS
 
 ## Deploying your Dev instance
 - Firstly generate your tfvars file by running `./scripts/generate_tfvars.ps1`
-    - This script will pull your public IP from whatsmyip.com and also set the loval_development variable to _true_
+    - This script will pull your public IP from whatsmyip.com and also set the local_development variable to _true_
