@@ -4,12 +4,6 @@ variable "local_ip" {
   description = "Browse to https://whatsmyip.org to find your local external IP"
 }
 
-variable "path_to_public_key" {
-  type        = string
-  default     = ""
-  description = "Path to your public SSH key usually ~/.ssh/<<your_key_name>>.pub"
-}
-
 variable "local_dev" {
   type    = bool
   default = false
