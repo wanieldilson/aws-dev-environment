@@ -12,5 +12,6 @@ module "compute" {
   developer_name       = "wanieldilson"
   instance_type        = "t2.micro"
   iam_instance_profile = aws_iam_instance_profile.terraform_profile.name
+  local_dev            = var.local_dev
 }
 

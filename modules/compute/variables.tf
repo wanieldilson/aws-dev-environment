@@ -32,3 +32,8 @@ variable "instance_type" {
 variable "iam_instance_profile" {
   type = string
 }
+
+variable "local_dev" {
+  type    = bool
+  default = false
+}

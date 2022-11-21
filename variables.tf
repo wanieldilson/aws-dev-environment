@@ -9,3 +9,8 @@ variable "path_to_public_key" {
   default     = ""
   description = "Path to your public SSH key usually ~/.ssh/<<your_key_name>>.pub"
 }
+
+variable "local_dev" {
+  type    = bool
+  default = false
+}

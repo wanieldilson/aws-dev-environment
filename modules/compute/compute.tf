@@ -1,6 +1,6 @@
 resource "aws_key_pair" "dev-env-key" {
   key_name   = var.key_name
-  public_key = file("/mnt/workspace/devInstanceKey.pub")
+  public_key = var.local_dev == true ? file("devInstanceKey.pub") : file("/mnt/workspace/devInstanceKey.pub")
 }
 
 resource "aws_instance" "this" {
