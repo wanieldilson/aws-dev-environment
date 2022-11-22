@@ -40,7 +40,9 @@ Follow [this guide](https://youtu.be/FRQ9fE4fd5g) to create and secure a new AWS
 
 ![Create User](./gifs/USER.gif)
 
-- 
+- Run `.\scripts\aws_setup.ps1` to generate an AWS credentials file (assuming you don't have one already).  This will give Terraform what it needs to create resources in your account.
+
+![AWS Credentials File](./gifs/AWS_CREDENTIALS.gif)
 
 ## Creating an SSH key
 - In a PowerShell window enter the command `ssh-keygen -t ed25519` to create your keypair.
@@ -49,8 +51,42 @@ Follow [this guide](https://youtu.be/FRQ9fE4fd5g) to create and secure a new AWS
 
 ## Installing Terraform
 - If you already have Chocolatey installed then simply run `choco install terraform`
-- If you're unable to install chocolatey then follow [these steps](https://spacelift.io/blog/how-to-install-terraform) to get terraform installed
+- If you're unable to install chocolatey then follow [these steps](https://spacelift.io/blog/how-to-install-terraform) to get terraform installed.
 
 ## Deploying your Dev instance
-- Firstly generate your tfvars file by running `./scripts/generate_tfvars.ps1`
+- Firstly generate your tfvars file by running `.\scripts\generate_tfvars.ps1`
     - This script will pull your public IP from whatsmyip.com and also set the local_development variable to _true_
+- Run `terraform init` to initialise the directory
+- Run `terraform apply`. Terraform will output a list of things that will happen, i.e stuff that will be created in your AWS account. Like this:
+
+![Teraform Apply](./gifs/TERRAFORM_APPLY.gif)
+
+- Type `yes` and hit enter.
+- Terraform will now go off and create the below infra in your account
+
+![Architecture Diagram](./gifs/architecture_white.png)
+
+## Connecting to your instance
+- Once your terraform completes, you will see an output that looks like this:
+
+```
+ssh_config_info = <<EOT
+Host 3.8.2.100
+  HostName 3.8.2.100
+  User ubuntu
+  IdentityFile ~/.ssh/devInstanceKey
+
+EOT
+```
+- This is the SSH information for your brand new EC2 dev instance
+- Run `.\scripts\add_to_ssh_config.ps1` to add the SSH information to your config file and allow you to connect.
+- Install the SSH extension to vscode
+    - Click on Extensions `(ctrl+shift+x)` type `ssh` into the search box and install `Remote - SSH` by Microsoft.
+- Press ctrl+shift+p to open the command pallet and type `ssh` click `Remote-SSH: Connect to host...`
+- The FIRST IP address in the list will be your AWS instance, as the script will always place the latest IP address at the top of the config file. *Click on it!*
+- Click on Linux
+- Click on continue
+- Your instance is now ready to use and has permissions to your AWS account via an instance role.,
+
+##  But wait, what about Github access!?
+I'm glad you asked...
