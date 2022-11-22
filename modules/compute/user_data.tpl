@@ -1,6 +1,7 @@
 #!/bin/bash
 sudo apt-get update -y &&
 sudo apt-get install -y \
+awscli \
 apt-transport-https \
 ca-certificates \
 curl \

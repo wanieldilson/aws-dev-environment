@@ -1,3 +1,3 @@
-output "connection_script" {
-  value = module.compute.connection_script
+output "ssh_config_info" {
+  value = module.compute.ssh_config_info
 }
