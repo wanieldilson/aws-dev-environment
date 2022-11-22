@@ -3,6 +3,10 @@
 ## Overview
 Are you fed up with trying to awkwardly develop on a windows machine, tried WSL2 and woke up one day to it being totally bawked by Windows 11? Fear not - Your free-tier AWS dev environment is here!  This is a slight extension of [Derek Morgan's course](https://courses.morethancertified.com/p/rfp-terraform) that teaches you how to build a dev instance in AWS using terraform.
 
+:warning: **Advice!! Take Derek's course before proceeding** :warning: 
+
+This repo is based on infrastructure deployed in [Derek Morgan's course](https://courses.morethancertified.com/p/rfp-terraform) "Build a Dev Environment with AWS and Terraform".  If you want to understand the underlying terraform code and what it's doing I really recommend taking the time to go through Derek's awesome content. 
+
 ---
 
 ## What you'll get..
@@ -25,8 +29,8 @@ So What are you waiting for!? Clone this repo and let's do it.
 1. [Creating Terraform credentials in AWS](#creating-terraform-credentials-in-aws)
 2. [Creating an SSH key](#creating-an-ssh-key)
 3. [Installing terraform](#installing-terraform)
-4. Deploying your dev instance
-5. Connect to your instance
+4. [Deploying your dev instance](#deploying-your-dev-instance)
+5. [Connect to your instance](#connecting-to-your-instance)
 
 ## Creating an AWS account
 Follow [this guide](https://youtu.be/FRQ9fE4fd5g) to create and secure a new AWS account.  
