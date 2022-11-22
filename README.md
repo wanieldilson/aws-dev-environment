@@ -17,7 +17,7 @@ After running through this readme you will have a way to spin up a development i
 - Have Terraform installed
 - Have an IAM role attached with Admin access to your AWS account
 
-So What are you waiting for!? Clone this repo and let's do it.
+So, what are you waiting for!? Clone this repo and let's do it.
 
 ## Prerequisites
 - A Windows machine
