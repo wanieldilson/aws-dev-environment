@@ -70,6 +70,29 @@ Follow [this guide](https://youtu.be/FRQ9fE4fd5g) to create and secure a new AWS
 
 ![Architecture Diagram](./gifs/architecture_white.png)
 
+##  Github access
+Remember in an earlier section when I said to copy your public key as you'll need it later?  This is that time!
+
+Firstly we need to add that SSH key to Github, so copy the contents of your public key to your clipboard and follow the guide [here](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account) 
+
+![Adding SSH Key to Github](./gifs/SSH_KEY_GITHUB.gif)
+
+- Copy the name of your SSH key to your clipboard `awsDevInstanceKey` if you followed these instructions exactly.
+- Run `./scripts/github_setup.ps1` and paste your keyname in.
+
+![Copying SSH to remote host](./gifs/SSH_COPY_TO_HOST.gif)
+
+- The script will grab the SSH key you've specified and copy it to the remote host.  It will also copy an SSH config file telling the remote host to use _that_ key for github access.
+
+
+- If you didn't follow exactly, or would like to use a different SSH key for github access.  Then all you need to do is edit the below line in `./scripts/config` to reflect the correct key name.
+
+```
+Host github.com
+  HostName github.com
+  IdentityFile ~/.ssh/awsDevInstanceKey <-- THIS ONE!!
+```
+
 ## Connecting to your instance
 - Once your terraform completes, you will see an output that looks like this:
 
@@ -90,7 +113,7 @@ EOT
 - The FIRST IP address in the list will be your AWS instance, as the script will always place the latest IP address at the top of the config file. *Click on it!*
 - Click on Linux
 - Click on continue
-- Your instance is now ready to use and has permissions to your AWS account via an instance role.,
+- press `ctrl + '` to open a terminal window and run `chmod 600 ~/.ssh/awsDevInstanceKey` (or your custom key name)
+- Your instance is now ready to use and has permissions to your AWS account via an instance role as well as github access.
 
-##  But wait, what about Github access!?
-I'm glad you asked...
+
